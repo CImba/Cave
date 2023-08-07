@@ -1,0 +1,141 @@
+* {
+    --default: #cccccc;
+    --player: #999999;
+    --player-border: #333333;
+    --treasure: #0faa0f;
+    --exit: #ccaa00;
+    --fight: #cc0f0f;
+
+    --door-weight: 64px;
+    --door-height: 20px;
+    --door-color: brown;
+    --door-color--opened: #be8484;
+
+    --room-width: 220px;
+    --room-height: 100px
+}
+
+.room {
+    display: block;
+    width: var(--room-width);
+    height: var(--room-height);
+    border: 1px solid var(--default);
+    background: var(--default);
+    z-index: 10;
+    position: relative;
+    margin: 10px 0;
+}
+
+.room--treasure {
+    background: var(--treasure);
+}
+.room--empty {
+    background: var(--default);
+}
+.room--exit {
+    background: var(--exit);
+}
+.room--fight {
+    background: var(--fight);
+}
+.room--hidden {
+    visibility: hidden;
+}
+/* icon player - body */
+.room--player::before {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 30px;
+    background: var(--player);
+    border: 1px solid var(--player-border);
+    position: absolute;
+    top: calc(50% - 15px);
+    left: calc(50% - 15px);
+    border-radius: 50% 50% 0 0;
+    z-index: 12;
+}
+/* icon player - head */
+.room--player::after {
+    content: '';
+    display: block;
+    position: absolute;
+    background: var(--player-border);
+    border: 1px solid var(--player-border);
+    top: calc(50% - 20px);
+    left: calc(50% - 9px);
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    z-index: 12;
+}
+.room--visited::before {
+    content: '';
+    position: absolute;
+    width: var(--room-width);
+    height: var(--room-height);
+    background: rgba(255, 255, 255, 0.4);
+    top: 0;
+    left: 0;
+}
+.room--visited > .door {
+    background: var(--door-color--opened);
+}
+.room--visited > .door:hover {
+    cursor: default;
+}
+
+.door, .door:hover {
+    cursor: pointer;
+}
+.door-top {
+    content: '';
+    display: block;
+    width: var(--door-weight);
+    height: var(--door-height);
+    position: absolute;
+    z-index: 15;
+    top: calc(-1 * (var(--door-height) / 2));
+    left: calc(50% - (var(--door-weight) / 2));
+    background: var(--door-color);
+    border-radius: 0 0 8px 8px;
+}
+.door-right {
+    content: '';
+    display: block;
+    width: var(--door-weight);
+    height: var(--door-height);
+    position: absolute;
+    z-index: 15;
+    top: calc(50% - (var(--door-height) / 2));
+    left: auto;
+    right: calc(-1 * (var(--door-weight) / 2));
+    background: var(--door-color);
+    transform: rotate(90deg);
+    border-radius: 0 0 8px 8px;
+}
+.door-bottom {
+    content: '';
+    display: block;
+    width: var(--door-weight);
+    height: var(--door-height);
+    position: absolute;
+    z-index: 15;
+    top: calc(100% - (var(--door-height) / 2));
+    left: calc(50% - (var(--door-weight) / 2));
+    background: var(--door-color);
+    border-radius: 8px 8px 0 0;
+}
+.door-left {
+    content: '';
+    display: block;
+    width: var(--door-weight);
+    height: var(--door-height);
+    position: absolute;
+    z-index: 15;
+    top: calc(50% - (var(--door-height) / 2));
+    left: calc(-1 * (var(--door-weight) / 2));
+    background: var(--door-color);
+    transform: rotate(90deg);
+    border-radius: 8px 8px 0 0;
+}

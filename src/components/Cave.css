@@ -1,0 +1,9 @@
+.cave {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 100%;
+    padding: 70px 50px;
+    background: #eeeeee;
+}

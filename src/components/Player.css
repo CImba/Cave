@@ -1,0 +1,71 @@
+.player {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: 200px;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    padding: 10px 0 5px 10px;
+    border-left: 3px solid;
+}
+.player::before {
+    content: '';
+    display: block;
+}
+.player::after {
+    content: '';
+    display: block;
+}
+
+.player .player--state {
+    position: relative;
+    padding: 0 0 0 30px;
+    margin: 0 0 10px 0px;
+    width: 100%;
+}
+.player .player--state::before, .player .player--state::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+/* icon health - vertical */
+.player .health.player--state::before {
+    background: green;
+    width: 7px;
+    height: 20px;
+    position: absolute;
+    top: 0;
+    left: 6.5px;
+}
+/* icon health - horizontal */
+.player .health.player--state::after {
+    background: green;
+    width: 20px;
+    height: 7px;
+    position: absolute;
+    top: 6.5px;
+    left: 0px;
+}
+/* icon sword - long piece */
+.player .attack.player--state::before {
+    background: darkred;
+    width: 25px;
+    height: 3px;
+    transform: rotate(-45deg);
+    top: 9px;
+    left: -1px;
+    border-radius: 0 50% 50% 0;
+}
+/* icon sword - short piece */
+.player .attack.player--state::after {
+    background: darkred;
+    height: 2px;
+    width: 11px;
+    transform: rotate(45deg);
+    top: 14.5px;
+    left: 1px;
+}

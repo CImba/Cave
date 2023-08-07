@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>hi!!!</h1>
+    <script>
+        console.log('frame?');
+        window.parent.postMessage("Success page ready", "http://localhost:63342/reac--my-project/public/testIFrame__index.html");
+        window.parent.postMessage("text", "http://localhost:63342/reac--my-project/src/testIFrame.html");
+        window.parent.postMessage("text2", "http://localhost:63342");
+    </script>
+</body>
+</html>
